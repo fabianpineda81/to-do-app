@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/domain/entities/todo_entity.dart';
@@ -9,7 +11,7 @@ import 'package:todo_app/presentation/providers/auth_provider.dart';
 import 'package:todo_app/presentation/shared/helpers/dates_helper.dart';
 
 final todosProvider=StateNotifierProvider.autoDispose<TodoNotifier,TodoState>((ref){
-    UserEntity user =  ref.read(authProvider).user!;
+    UserEntity user =  ref.watch(authProvider).user!;
     final TodoFirebaseDatasourceImpl todoFirebaseDatasourceImpl=TodoFirebaseDatasourceImpl(); 
     final TodoFirebaseRepositoryImpl todoFirebaseRepositoryImpl= TodoFirebaseRepositoryImpl(abstractTodosDatasource: todoFirebaseDatasourceImpl);
     return TodoNotifier(
@@ -21,6 +23,7 @@ final todosProvider=StateNotifierProvider.autoDispose<TodoNotifier,TodoState>((r
 class TodoNotifier extends StateNotifier<TodoState>{
   TodoFirebaseRepositoryImpl todoFirebaseRepositoryImpl; 
   UserEntity user; 
+  StreamSubscription? _todosSubscription;
   TodoNotifier({
     required this.user,
     required this.todoFirebaseRepositoryImpl
@@ -30,6 +33,13 @@ class TodoNotifier extends StateNotifier<TodoState>{
     )
   ){
     listenTodos();
+  }
+  @override
+  void dispose() {
+    // Cancelamos la suscripción a los snapshots de Firestore
+    _todosSubscription?.cancel();
+    print("El StateNotifier ha sido eliminado y la suscripción a Firestore cancelada.");
+    super.dispose();
   }
   
   addTodo()async{
@@ -126,7 +136,7 @@ class TodoNotifier extends StateNotifier<TodoState>{
         .collection("userTodos")
         .orderBy("crationDate", descending: true);
 
-    todosRef.snapshots().listen((snapshot) {
+  _todosSubscription= todosRef.snapshots().listen((snapshot) {
       final todos = snapshot.docs.map((doc) {
         final data = doc.data();
         return TodoEntity(

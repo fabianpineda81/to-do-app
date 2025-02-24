@@ -17,7 +17,8 @@ class TodoPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context,ref) {
     bool isUpdating = ref.watch(todosProvider).isUpdating;
-    TodoStatusEnum filterState= ref.watch(todosProvider).filterState;
+    final provider =  ref.watch(todosProvider);
+    TodoStatusEnum filterState=provider.filterState;
     return Scaffold(
       key: scaffoldkey,
       drawer: TodoDrawer(scaffoldkey),
@@ -31,7 +32,7 @@ class TodoPage extends ConsumerWidget {
         ),
       title: Text("Todos ${filterState.description}"),
       actions:  [
-        WhiteIconButton(
+       if(filterState == TodoStatusEnum.pending)  WhiteIconButton(
           iconData:  Icons.add_box_rounded,
           onPressed:(){
             ref.read(todosProvider.notifier).reset();
