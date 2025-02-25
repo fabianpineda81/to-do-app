@@ -106,6 +106,33 @@ class OrderCardBody extends ConsumerWidget {
               label: 'Fecha de finalizacion:',
               value: DateHelper.dateTimeToString(todo.endDate!),//todo:Fecha
             ),
+            const Divider(),
+            const SizedBox(height: 4),
+            Text(
+              'To-do traducido con google',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.normal
+                )
+              ),
+            const SizedBox(height: 4),  
+            Text(
+              todo.translatedTitle??"Traduciendo...",
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.secondary
+                )
+              ),
+            Text(
+              'Descriptión:',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold
+              )
+            ),
+            Text(
+              todo.translatedDescription??"",
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.normal
+              )
+          )     
       ],
     );
   }

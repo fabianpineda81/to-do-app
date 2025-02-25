@@ -147,6 +147,8 @@ class TodoNotifier extends StateNotifier<TodoState>{
           crationDate: DateHelper.stringToDate(data["crationDate"]),
           endDate:data["endDate"]!=null?DateHelper.stringToDate(data["endDate"]):null,
           userEmail: data["userEmail"] ?? '',
+          translatedDescription: data["translatedDescription"],
+          translatedTitle: data["translatedTitle"]
         );
       }).toList();
 

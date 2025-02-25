@@ -8,6 +8,8 @@ class TodoEntity {
   final TodoStatusEnum state ;
   final DateTime crationDate ; 
   final DateTime? endDate ;
+  final String? translatedDescription;
+  final String? translatedTitle;
 
   TodoEntity( {
     required this.id, 
@@ -17,6 +19,8 @@ class TodoEntity {
     required this.crationDate, 
     required this.endDate,
     required this.description,
+    this.translatedDescription,
+    this.translatedTitle
     });
 
    Map<String, dynamic> toMap() {
@@ -28,6 +32,8 @@ class TodoEntity {
       'state': state.name, 
       'crationDate': crationDate.toIso8601String(), 
       'endDate':  endDate?.toIso8601String(),
+      'translatedDescription':translatedDescription,
+      'translatedTitle':translatedTitle
     };
   }
   TodoEntity copyWith({
@@ -38,6 +44,8 @@ class TodoEntity {
     TodoStatusEnum? state,
     DateTime? crationDate,
     DateTime? endDate,
+    String? translatedDescription,
+    String? translatedTitle
   }) {
     return TodoEntity(
       id: id ?? this.id,
@@ -46,7 +54,9 @@ class TodoEntity {
       state: state ?? this.state,
       crationDate: crationDate ?? this.crationDate,
       endDate: endDate ?? this.endDate,
-      description:description?? this.description
+      description:description?? this.description,
+      translatedDescription:translatedDescription??this.translatedDescription,
+      translatedTitle: translatedTitle?? this.translatedTitle      
     );
   }
 
