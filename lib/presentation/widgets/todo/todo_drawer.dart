@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/domain/utils/todo_status_enum.dart';
-import 'package:todo_app/presentation/providers/auth_provider.dart';
-import 'package:todo_app/presentation/providers/todo_page_provider.dart';
+import 'package:todo_app/presentation/providers/auth_provider/auth_provider.dart';
+import 'package:todo_app/presentation/providers/todo_page_provider/todo_page_provider.dart';
 import 'package:todo_app/presentation/widgets/buttons/outlined_icon_and_text_small_button.dart';
 import 'package:todo_app/presentation/widgets/profile_name_and_close_drawer.dart';
 

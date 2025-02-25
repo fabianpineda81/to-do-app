@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_app/presentation/providers/todo_page_provider.dart';
+import 'package:todo_app/presentation/providers/todo_page_provider/todo_page_provider.dart';
 import 'package:todo_app/presentation/widgets/buttons/outlined_icon_and_text_large_button.dart';
 import 'package:todo_app/presentation/widgets/buttons/outlined_text_large_button.dart';
 import 'package:fluttertoast/fluttertoast.dart';

@@ -7,7 +7,7 @@ import 'package:todo_app/domain/entities/user_entity.dart';
 import 'package:todo_app/domain/utils/todo_status_enum.dart';
 import 'package:todo_app/infrastructure/datasource/todo_firebase_datasource_impl.dart';
 import 'package:todo_app/infrastructure/repositories/todo_firebase_repository_impl.dart';
-import 'package:todo_app/presentation/providers/auth_provider.dart';
+import 'package:todo_app/presentation/providers/auth_provider/auth_provider.dart';
 import 'package:todo_app/presentation/providers/todo_page_provider/todo_page_state.dart';
 import 'package:todo_app/presentation/shared/helpers/dates_helper.dart';
 

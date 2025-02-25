@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/domain/entities/todo_entity.dart';
 import 'package:todo_app/domain/utils/todo_status_enum.dart';
 import 'package:todo_app/presentation/enums.dart';
-import 'package:todo_app/presentation/providers/todo_page_provider.dart';
+import 'package:todo_app/presentation/providers/todo_page_provider/todo_page_provider.dart';
 import 'package:todo_app/presentation/shared/helpers/dates_helper.dart';
 import 'package:todo_app/presentation/shared/helpers/dialogs_helper.dart';
 import 'package:todo_app/presentation/widgets/inputs/label_and_value_text.dart';

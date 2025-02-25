@@ -2,10 +2,10 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/config/router/app_router_notifier.dart';
 import 'package:todo_app/config/router/app_routes.dart';
+import 'package:todo_app/presentation/enums.dart';
 import 'package:todo_app/presentation/pages/login_page.dart';
 import 'package:todo_app/presentation/pages/splash_page.dart';
 import 'package:todo_app/presentation/pages/todo_page.dart';
-import 'package:todo_app/presentation/providers/auth_provider.dart';
 
 final goRouterProvider = Provider((ref) {
   final goRouterNotifier= ref.watch(goRouterNotifierProvider);

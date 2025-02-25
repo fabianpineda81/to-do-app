@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_app/presentation/providers/auth_provider.dart';
+import 'package:todo_app/presentation/providers/auth_provider/auth_provider.dart';
 
 final loginProvider = StateNotifierProvider<LoginNotifier,LoginState>((ref){
   final loginUserCallback= ref.read(authProvider.notifier).login;
