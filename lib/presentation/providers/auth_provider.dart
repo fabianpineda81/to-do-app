@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/domain/utils/authentication_method_enum.dart';
 import 'package:todo_app/infrastructure/datasource/auth_firebase_datasource_impl.dart';
 import 'package:todo_app/infrastructure/repositories/auth_firebase_repository_impl.dart';
+import 'package:todo_app/presentation/enums.dart';
 
-enum AuthStatus { checking, authenticated, notAuthenticated }
 
 final authProvider = StateNotifierProvider<AuthNotifier,AuthState>((ref){
   final AuthFirebaseDatasourceImpl authFirebaseDatasourceImpl=AuthFirebaseDatasourceImpl();
