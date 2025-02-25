@@ -56,3 +56,5 @@ linux/flutter/ephemeral/
 # Otros
 .DS_Store
 *.log
+# Ignorar archivos generados por Android NDK
+android/app/.cxx/

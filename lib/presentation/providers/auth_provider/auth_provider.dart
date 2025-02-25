@@ -6,6 +6,7 @@ import 'package:todo_app/domain/utils/authentication_method_enum.dart';
 import 'package:todo_app/infrastructure/datasource/auth_firebase_datasource_impl.dart';
 import 'package:todo_app/infrastructure/repositories/auth_firebase_repository_impl.dart';
 import 'package:todo_app/presentation/enums.dart';
+import 'package:todo_app/presentation/providers/auth_provider/auth_state.dart';
 
 
 final authProvider = StateNotifierProvider<AuthNotifier,AuthState>((ref){
@@ -87,24 +88,3 @@ class AuthNotifier extends StateNotifier<AuthState>{
   }
 }
 
-class AuthState {
-    final AuthStatus authStatus;
-    final UserEntity? user;
-    final String errorMessage;
-
-  AuthState({
-     this.authStatus= AuthStatus.checking, 
-     this.user, 
-     this.errorMessage=""
-    });
-
-     AuthState copyWith({
-    AuthStatus? authStatus,
-    UserEntity? user,
-    String? errorMessage
-  }) => AuthState(
-    authStatus: authStatus ?? this.authStatus,
-    user: user ?? this.user,
-    errorMessage: errorMessage ?? this.errorMessage,
-  );
-}
